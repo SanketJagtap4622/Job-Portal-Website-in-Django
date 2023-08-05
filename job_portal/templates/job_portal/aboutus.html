@@ -1,0 +1,81 @@
+{% extends 'job_portal/base.html' %}
+
+{% comment %} {% block title %}
+About Us
+{% endblock %} {% endcomment %}
+
+{% block nav_item_aboutus %}
+active
+{% endblock %}
+
+{% block colors %}
+<style>
+    .carousel-item {
+        height: auto;
+        width: auto;
+    }
+
+    .overlay-image {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-position: center;
+        background-size: cover;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    About Us
+</marquee>
+<br>
+<div id="carouselExampleIndicators">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active img-fluid">
+            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://flyoclub.com/wp-content/uploads/2019/11/Flights-banner.jpg"
+                class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>About Us</h1>
+                <p>Empowering The Leaders of Tomorrow.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="vsc-initialized">
+
+    <div class="container" style="font-size: larger;">
+        <div class="py-4 my-4">
+            <p>Welcome, we are a team of developers that believes in providing better technology and building
+                revolutionary projects. We're dedicated to giving you the very best and clearest visualization that we
+                can possibly give you. With focus on clarity, usability and interaction.
+            </p>
+            <p>
+                Founded in 2022 by Sanket Jagtap, Harsh Raskar, Virendra Jaiswar and Aditi Hinge we have come a
+                long way from its beginnings. When we first started out, our passion for making your datasets come to
+                life drove us to working every day, to the limit, so that we can offer you the best possible
+                visualizations. We can now serve customers all over the world, and are thrilled that we're able to turn
+                our passion into our website.
+            </p>
+            <p>
+                We hope you enjoy our services as much as we enjoy offering them to you. If you have any questions or
+                comments please don't hesitate to contact us on the mail given below.
+            </p>
+            <h5 class="font-weight-bold py-0"><i class="bi bi-person-lines-fill"></i> Mail: miniproject78910@gmail.com
+            </h5>
+        </div>
+    </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,359 @@
+{% extends 'job_portal/base.html' %}
+
+{% comment %} {% block title %}
+Companies
+{% endblock %} {% endcomment %}
+
+{% block nav_item_companines %}
+active
+{% endblock %}
+
+{% block colors %}
+<style>
+    body {
+        background-color: rgb(231, 225, 225);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .inner {
+        overflow: hidden;
+    }
+
+    .inner img {
+        transition: all 1.5s ease;
+    }
+
+    .inner:hover img {
+        transform: scale(1.5);
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    }
+</style>
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    Companies
+</marquee>
+<div class="py-5 text-center">
+    <h1 class="font-weight-bold py-0">Featured Companies Actively Hiring</h1>
+</div>
+<div class="container text-center mpy-4">
+    <div class="row mb-3 g-4 mx-1">
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://static.dezeen.com/uploads/2012/08/dezeen_Microsoft-logo-3-300x300.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Microsoft</h3>
+                    <p class="card-text mb-auto">Microsoft is a leading global vendor of computer software; hardware for
+                        computer and cloud services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="data:image/jpeg;base64,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pr/YfkfzD4K3i0jE8Wfh5jngqOXRc0ZvGb7sDzxWDhfKLUx2EzGzjj4DvOBY+ZSek5QqN/h68R+0wuHnZf1KusR0dq6f95A8Dxmt1m/mbcDvWqWRoqeUazfI/kLBukKmHB39h+Cr0p9JKSTwaqPveGnzOsstuIQnZNGex7fiqBXzbqUJ0U3Jx8AtgaZfmweJV/vxKFu2aMdsjR71gVOlVFH4VSw+SS8+ZoKo+y5Xo0UzNx8F4dMvyYPH8K16zlFpWfu2vlPk6o87s/QoxinKHVS3EQbAOI6TvOcvQoetxh2jNXUeBA+3jPGo3tu61+66mFHTQi7h4nkLXNfVT9Vv9RyVraqpfK7Xke57jvc4k+cpSUr5nCONjnuOwNFz/wDOtT/CeTcZOqZr/YZl3F59wU3wzC4aZurDE2Mb7C5Pa45nvUcukY2C0YufAKaHRUrzeQ28zzvUK0b5PgLSVfSO0RA5fjcNvYMu1T+KMNAa0BoAsABYAcAF2IqiaZ8pu8q7gp44W6rB8lERFEp0RERERERERERERERERERERERERERERERFwsKrwqCb95BHJ5TGk+eyzkQEjYvCARYqOT6EUL/4Gr5L3j3rBfydUZ2GVvY8e9pUxRTipmGx58VAaSA7WDwUPj5OqMbedd2yD3NCzYNCaFn8DW8p73eglSNF4amY7XnxRtJANjB4LCpcMhh/dwxx+Sxo9QWYuUUO3apwABYIiIi9REREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREX//Z"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Dell Technologies</h3>
+                    <p class="card-text mb-auto">Dell is an American company that develops, sells, repairs, and supports
+                        computers.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="285" height="220"
+                        src="https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_webp/https://sixe.eu/wp-content/uploads/2019/11/IBM-logo-300x300.jpg"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">IBM</h3>
+                    <p class="card-text mb-auto">IBM produces and sells computer hardware, middleware & software, &
+                        provides hosting services.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="285" height="220"
+                        src="https://d3bzyjrsc4233l.cloudfront.net/company_office/adobe.png" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Adobe</h3>
+                    <p class="card-text mb-auto">Adobe Systems Incorporated, is an American multinational computer
+                        software company.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://images.squarespace-cdn.com/content/v1/55e45319e4b0fe8647d43b01/1587747071063-19U7BJQX0UFP2QJEFX7H/qualcomm-logo-vector-01.png"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Qualcomm</h3>
+                    <p class="card-text mb-auto">It creates semiconductors, software, and services related to wireless
+                        technology.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="210" height="200"
+                        src="data:image/png;base64,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"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Amazon</h3>
+                    <p class="card-text mb-auto">Worlds largest Internet company.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://cabinetm-beta.s3.amazonaws.com/0000017a-d348-a35a-a0e3-37aaa6dbde4b.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Tata Consultancy Services</h3>
+                    <p class="card-text mb-auto">TCS is an multinational consulting and IT services providing company.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://www.servicedeskinstitute.com/wp-content/uploads/2018/07/capgemini-logo-300-300x300.gif"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Capegemini</h3>
+                    <p class="card-text mb-auto">Globally leader in technology services.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="286" height="220"
+                        src="http://siliconangle.com/files/2014/08/oracle-logo.png" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Oracle</h3>
+                    <p class="card-text mb-auto">Cloud technology company since 1977.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="286" height="220"
+                        src="https://pharmtechfocus.com/wp-content/uploads/2021/09/cEhK1Jte_400x400-300x300.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">L&T Infotech(LTI)</h3>
+                    <p class="card-text mb-auto">Mumbai-based IT services company since 1997.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://www.mocktest.freshersnow.com/uploads/exams/categories/70-catimage.png" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Cognizant</h3>
+                    <p class="card-text mb-auto">Leading ITeS company with global presence.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="286" height="220"
+                        src="data:image/jpeg;base64,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"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Synechron</h3>
+                    <p class="card-text mb-auto">Information Technology company.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="http://img0cf.b8cdn.com/images/logo/62/1539962_logo_1558438742_n.png" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">HCL Technologies</h3>
+                    <p class="card-text mb-auto">Globally acclaimed tech company since 1991.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://i.pinimg.com/474x/45/24/9e/45249e20e04258a911866f75459b31fd.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Tesla, Inc.</h3>
+                    <p class="card-text mb-auto">Tesla designs and manufactures electric vehicles, battery energy
+                        storage services</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="286" height="220"
+                        src="https://jnj-content-lab.brightspotcdn.com/dims4/default/0b2fb58/2147483647/strip/true/crop/1026x1026+278+0/resize/300x300!/quality/90/?url=http%3A%2F%2Fjnj-brightspot.s3.amazonaws.com%2F56%2F24%2F4ff7ecca4df6abb4559038a3ea89%2Flede-agletter-06.02.20.png"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Johnson & Johnson</h3>
+                    <p class="card-text mb-auto">Multinational company develops medical devices, pharmaceuticals, and
+                        consumer packaged goods.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://images.yourstory.com/cs/images/companies/3797778019661652667471106715003246412300288n-1634118468258.jpg?fm=auto&ar=1:1&mode=fill&fill=solid&fill-color=fff"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bharat Biotech</h3>
+                    <p class="card-text mb-auto">Bharat Biotech International Limited is an Indian multinational
+                        biotechnology company.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="https://thequizzers.files.wordpress.com/2011/06/godrej.jpg?w=584" alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Godrej Group</h3>
+                    <p class="card-text mb-auto">Godrej Group is an Indian multinational conglomerate headquartered in
+                        Mumbai.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 padding-0">
+            <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                style="width: 18rem; height: 23rem;">
+
+                <div class="inner">
+                    <img class="bd-placeholder-img mx-auto d-block" width="250" height="220"
+                        src="data:image/png;base64,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"
+                        alt="">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bajaj Electricals</h3>
+                    <p class="card-text mb-auto">Bajaj Electricals Ltd is an Indian consumer electrical equipment
+                        manufacturing company.</p>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

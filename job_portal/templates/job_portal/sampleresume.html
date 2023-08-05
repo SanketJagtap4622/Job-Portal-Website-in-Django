@@ -1,0 +1,28 @@
+{% extends 'job_portal/base.html' %}
+
+{% comment %} {% block title %}
+Sample Resume
+{% endblock %}
+
+{% block nav_item_services %}
+active
+{% endblock %} 
+
+{% block nav_item_sampleresume %}
+active
+{% endblock %} {% endcomment %}
+
+{% block colors %}
+<style>
+    .container {
+        padding: 30px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <embed src="https://196034-584727-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2022/02/London-Resume-Template-Professional.pdf" 
+    type="application/pdf" width="100%" height="1000px" />
+</div>
+{% endblock %}

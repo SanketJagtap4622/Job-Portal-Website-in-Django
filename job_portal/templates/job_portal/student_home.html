@@ -1,0 +1,124 @@
+{% include "job_portal/student_header.html" %}
+{% comment %} {% block title %}
+Recruiter
+{% endblock %} {% endcomment %}
+
+{% block colors %}
+<style>
+    .form {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: rgb(231, 225, 225);
+    }
+
+    .row {
+        padding: 5px 0px;
+        /* background: white; */
+        border-radius: 10px;
+        box-shadow: 12px 12px 22px grey;
+    }
+
+    h1, h4{
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(13, 84, 135);
+    }
+
+    /* .btn1 {
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .btn1:hover {
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
+
+    .form-label:after {
+        content: " *";
+        color: red;
+    } */
+</style>
+{% endblock %}
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    Student Profile
+</marquee>
+<div class="container">
+    <section class="bg-light-gray py-4">
+        <div class="text-center py-1">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="heading">Welcome {{request.user.first_name}} {{request.user.last_name}} to your Student Account</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div>
+                        <div class="col-lg-12 text-center my-2">
+                            <h4>Student profile</h4>
+                            <!-- <hr> -->
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-lg-12 form-group pb-2">
+                            <label for="username" class="form-label"><b>Username</b></label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                value="{{student.user.username}}" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-lg-12 form-group pb-2">
+                            <label for="lastName" class="form-label"><b>Last name</b></label>
+                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                value="{{request.user.last_name}}" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-lg-12 form-group pb-2">
+                            <label for="firstName" class="form-label"><b>First name</b></label>
+                            <input type="text" class="form-control" name="firstName" id="firstName"
+                                value="{{request.user.first_name}}" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-lg-12 form-group pb-2">
+                            <label for="email" class="form-label"><b>Email</b></label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{student.email}}"
+                                readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-lg-12 form-group pb-2">
+                            <label for="mobile" class="form-label"><b>Mobile No</b></label>
+                            <input type="text" class="form-control" name="mobile" id="mobile"
+                                value="{{student.mobile}}" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+{% endblock %}
+{% include "job_portal/footer.html" %}

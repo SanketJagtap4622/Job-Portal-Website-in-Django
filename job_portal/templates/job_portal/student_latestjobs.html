@@ -1,0 +1,63 @@
+{% extends 'job_portal/student_header.html' %}
+{% load static %}
+{% block content %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{ message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    Latest Jobs List
+</marquee>
+<div class="container mt-2">
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr style="background-color: #000080; color: white;">
+                <th>Sr.No</th>
+                <th>Company Name</th>
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in job %}
+            <tr style="background-color: gray;">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.company_name}}</td>
+                <td>{{i.title}}</td>
+                <td>{{i.location}}</td>
+                <td>{{i.start_date}}</td>
+                <td>{{i.end_date}}</td>
+
+                {% if i.id in li %}
+                <td><span class="text-white btn btn-primary btn-sm">Applied</span></td>
+                {% else %}
+                <td><a href="{% url 'job_detail' i.id %}" class="btn btn-success btn-sm">Apply</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% comment %} <div class="container d-flex">
+    {% for i in job %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{i.company_name}}</h5>
+            <p class="card-text">{{i.title}}</p>
+            <p class="card-text">{{i.location}}</p>
+            <!-- <p class="card-text">Start Date {{i.start_date}}</p> -->
+            <!-- <p class="card-text">{{i.end_date}}</p> -->
+            <a href="#" class="btn btn-primary">Apply For Job</a>
+        </div>
+    </div>
+    {% endfor %}
+</div> {% endcomment %}
+{% endblock %}

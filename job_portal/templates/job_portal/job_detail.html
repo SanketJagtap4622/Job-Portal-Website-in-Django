@@ -1,0 +1,112 @@
+{% extends 'job_portal/student_header.html' %}
+{% load static %}
+
+{% block colors %}
+<style>
+    body {
+        background-color: rgb(231, 225, 225);
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px grey;
+    }
+
+    h2{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .btn1 {
+        border: none;
+        outline: none;
+        height: 35px;
+        width: 14%;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        position: absolute;
+        right: 17px;
+    }
+
+    .btn1:hover {
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    Job Details
+</marquee>
+<section class="form my-5">
+    <div class="container">
+        <main>
+            <!-- <div class="py-5 text-center">
+                <h1 class="font-weight-bold py-0">Let's Apply for the Job</h1>
+            </div> -->
+
+            <form class="row g-4  needs-validation" novalidate>
+
+                <h2 class="font-weight-bold py-0"><i class="bi bi-card-list"></i> Job Details </h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-2">
+                            <a href="{% url 'applyforjob' job.id%}" class="btn btn1">Apply</a>
+                            {{job.company_name}}<br />
+                        </h4>
+                        <div class="col-md-12 mb-1">
+                            <!-- <i class="bi bi-geo-alt-fill"></i> -->
+                            <a href="#"><i class="fa fa-map-marker mx-1"></i><em>{{job.location}}</em></a>
+                            <span class="mx-5"><i class="fa fa-calendar mx-1"></i>{{job.creation_date}}</span>
+                            <br>
+                        </div>
+                        <!-- 
+                        <div class="col-md-12">
+                            <strong>Address:</strong>
+                            Powai, 400705<br />
+                        </div> -->
+
+                        <div class="col-md-12">
+                            <strong>Skills required:</strong>
+                            {{job.skills}}<br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <strong>Position:</strong>
+                            {{job.title}}<br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <strong>Salary Range:</strong>
+                            {{job.salary}}<br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <strong>Start date:</strong>
+                            {{job.start_date}}<br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <strong>End date:</strong>
+                            {{job.end_date}}<br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <strong>Job Decription:</strong>
+                            {{job.description}}<br />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</section>
+{% endblock %}
+{% include "job_portal/footer.html" %}

@@ -1,0 +1,43 @@
+{% extends 'job_portal/student_header.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    Apply For Job
+</marquee>
+<br>
+<br>
+<div class="container shadow-lg py-2 mb-2">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div class="form-row">
+            <label class="font-weight-bold mb-2">Upload Resume</label>
+            <input type="file" class="form-control" name="resume">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success mt-3">
+    </form>
+</div>
+{% if error == "close" %}
+<script>
+  alert("Application lines are closed")
+  window.location = ('{% url 'student_latestjobs' %}') 
+</script>
+{% endif %}
+
+{% if error == "notopen" %}
+<script>
+  alert("Application lines are not opened yet")
+  window.location = ('{% url 'student_latestjobs' %}') 
+</script>
+{% endif %}
+
+{% if error == "done" %}
+<script>
+  alert("Job Application submitted Successfully")
+  window.location = ('{% url 'student_latestjobs' %}') 
+</script>
+{% endif %}
+{% endblock %}
+

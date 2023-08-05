@@ -1,0 +1,142 @@
+{% extends 'job_portal/base.html' %}
+
+{% comment %} {% block title %}
+Student
+{% endblock %} {% endcomment %}
+
+{% block colors %}
+<style>
+    .form {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: rgb(231, 225, 225);
+    }
+
+    .row {
+        background: white;
+        border-radius: 30px;
+        box-shadow: 12px 12px 22px grey;
+    }
+
+    img {
+        border-bottom-left-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+
+    .btn1 {
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .btn1:hover {
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+{% block nav_item_signin %}
+active
+{% endblock %}
+
+{% block nav_item_studentsignin %}
+active
+{% endblock %}
+
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    SignIn Student
+</marquee>
+<form action="/loginStudent/" method="POST">
+<section class="form my-4 mx-5">
+    <div class="container">
+        <div class="row g-0 g-lg-0">
+            <div class="col-lg-5">
+                {% load static %}
+                <img src="{% static 'job_portal/signin img.jpg' %}" class="img-fluid" alt="" srcset="">
+            </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <h1 class="font-weight-bold py-3">Student Login</h1>
+                <h5>Enter your Username and your Password.</h5>
+
+                <form>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <div class="input-group has-validation">
+                                <span class="input-group-text my-3 p-3">@</span>
+                                <input type="text" class="form-control my-3 p-3" name="username" id="username"
+                                    placeholder="Username" required="">
+                                <div class="invalid-feedback">
+                                    Your Username is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control my-3 p-3" name="password" id="password"
+                                    placeholder="Password" required="">
+                                <div class="invalid-feedback">
+                                    Your Password is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="btn col-lg-7">
+                            {% csrf_token %}
+                            <button type="submit" class="btn1 mt-3 mb-4 btn btn-white btn-lg active"
+                                aria-pressed="true">Login</button>
+                        </div>
+                    </div>
+                    <a href="#">Forgot Password?</a>
+                    <p>Don't have an Account? <a href="#">Sign Up here</a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</form>
+{% if error == "no" %}
+<script>
+  alert("Successfully Login")
+  window.location = ('{% url 'student_home' %}') 
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert("Invalid login credentials, Please try again.......!!") 
+</script>
+{% endif %}
+{% endblock %}
+
+{% comment %} {% ifequal error "no"%}
+<script>
+  alert("Login Successfully")
+  window.location = ('/') 
+</script>
+{% endifequal %}
+
+{% ifequal error "yes"%}
+<script>
+  alert("Something went wrong, Please try again")
+</script>
+{% endifequal %}  {% endcomment %}

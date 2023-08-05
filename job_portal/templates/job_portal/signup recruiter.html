@@ -1,0 +1,180 @@
+{% extends 'job_portal/base.html' %}
+
+{% comment %} {% block title %}
+Recruiter
+{% endblock %} {% endcomment %}
+
+{% block colors %}
+<style>
+    .form {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: rgb(231, 225, 225);
+    }
+
+    .row {
+        background: white;
+        border-radius: 30px;
+        box-shadow: 12px 12px 22px grey;
+    }
+
+    h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .btn1 {
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .btn1:hover {
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
+
+    .form-label:after {
+        content: " *";
+        color: red;
+    }
+</style>
+{% endblock %}
+
+{% block nav_item_signup %}
+active
+{% endblock %}
+
+{% block nav_item_recruitersignup %}
+active
+{% endblock %}
+
+{% block content %}
+<br>
+<marquee
+    style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px; color: white; background-color: rgb(19, 181, 14);">
+    SignUp Recruiter
+</marquee>
+<form action="/register/" method='POST'>
+    <section class="form my-1 mx-5">
+        <div class="container col-lg-7 px-7">
+
+            <body class="bg-light vsc-initialized">
+
+                <div class="container">
+                    <main>
+                        <div class="text-center">
+                            <h1 class="font-weight-bold py-0">Create Your Recruiter Account</h1>
+                        </div>
+
+                        <section class="form my-4 mx-5">
+                            <div class="container">
+                                <div class="row g-0 g-lg-0">
+                                    <div class="col-lg-5">
+
+                                    </div>
+                                    <div class="form my-4 mx-5">
+                                        <h2 class="font-weight-bold py-0">Register Yourself</h2>
+                                        <form>
+                                            <div class="col-9">
+                                                <label for="lastName" class="form-label">Last name</label>
+                                                <input type="text" class="form-control" name="lastName" id="lastName"
+                                                    placeholder="" value="" required="">
+                                                <div class="invalid-feedback">
+                                                    Valid Last name is required.
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <label for="firstName" class="form-label">First name</label>
+                                                <input type="text" class="form-control" name="firstName" id="firstName"
+                                                    placeholder="" value="" required="">
+                                                <div class="invalid-feedback">
+                                                    Valid First name is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-9">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" name="email" id="email"
+                                                    placeholder="you@example.com">
+                                                <div class="invalid-feedback">
+                                                    Please enter a valid email address.
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-9">
+                                                    <label for="mobile" class="form-label">Mobile No</label>
+                                                    <input type="text" class="form-control" name="mobile" id="mobile"
+                                                        placeholder="Mobile No" required="">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-9">
+                                                <label for="username" class="form-label">Preferred Username</label>
+                                                <div class="input-group has-validation">
+                                                    <span class="input-group-text">@</span>
+                                                    <input type="text" class="form-control" name="username"
+                                                        id="username" placeholder="Username" required="">
+                                                    <div class="invalid-feedback">
+                                                        Your Username is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-9">
+                                                    <label for="username" class="form-label">Create a Password for your
+                                                        Account</label>
+                                                    <div class="input-group has-validation">
+                                                        <input type="password" class="form-control" name="password"
+                                                            id="password" placeholder="Password" required="">
+                                                        <div class="invalid-feedback">
+                                                            Your Password is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-9">
+                                                        <label for="username" class="form-label">Confirm
+                                                            Password</label>
+                                                        <div class="input-group has-validation">
+                                                            <input type="password" class="form-control" name="cpassword"
+                                                                id="cpassword" placeholder="Password" required="">
+                                                            <div class="invalid-feedback">
+                                                                Your Password is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-lg-7">
+                                                        {% csrf_token %}
+                                                        <button type="submit"
+                                                            class="btn1 mt-3 mb-4 btn btn-white btn-lg active"> Register
+                                                            Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                        </section>
+</form>
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+<script src="form-validation.js"></script>
+
+
+</body>
+</section>
+{% endblock %}
